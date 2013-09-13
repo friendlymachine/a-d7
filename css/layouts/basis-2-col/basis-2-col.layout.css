@@ -1,0 +1,106 @@
+/*******************************************************************************
+ * _layout.scss
+ *
+ * Styling of the "basis" layout.
+ ******************************************************************************/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000330}}
+.l-top,
+.l-branding,
+.l-main,
+.l-footer {
+  *zoom: 1;
+  max-width: 1168px;
+  _width: 1168px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/\.rvm\/gems\/ruby-1\.9\.3-p448\@omega\.cozumel\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
+.l-top:after,
+.l-branding:after,
+.l-main:after,
+.l-footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000337}}
+.l-region--highlighted,
+.l-region--help {
+  margin-bottom: 0;
+}
+
+@media (min-width: 50em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000345}}
+  .l-top,
+  .l-branding,
+  .l-main,
+  .l-footer {
+    max-width: 1168px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000350}}
+  .l-content {
+    width: 62.18487%;
+    float: left;
+    margin-right: 0.84034%;
+    float: left;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000355}}
+  .l-sidebar {
+    width: 32.77311%;
+    float: right;
+    margin-right: 0;
+    clear: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000360}}
+  .l-region--branding {
+    width: 100%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000363}}
+  .l-region--header {
+    width: 100%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000366}}
+  .l-region--navigation {
+    width: 49.57983%;
+    float: left;
+    margin-right: 0.84034%;
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000371}}
+  .l-logo {
+    width: 7.56303%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000375}}
+  .l-site-name {
+    width: 91.59664%;
+    float: right;
+    margin-right: 0;
+    float: left;
+  }
+}
+@media (min-width: 70em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/omega-4-starter\/sites\/all\/themes\/basis\/sass\/layouts\/basis-2-col\/basis-2-col\.layout\.scss}line{font-family:\0000385}}
+  .l-top,
+  .l-branding,
+  .l-main,
+  .l-footer {
+    max-width: 1168px;
+  }
+}

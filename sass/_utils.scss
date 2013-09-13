@@ -1,0 +1,66 @@
+/*******************************************************************************
+ * _utils.scss
+ *
+ * Sass offers come very useful features, these include variables functions and
+ * mixins. Extensions such as Compass and Susy can also be used to provide extra
+ * functions and mixins to be used throughout the theme. This file acts as a
+ * single place for defining these things, which can then be accessed by
+ * importing _utils.scss where required. The following should be defined in this
+ * file:
+ * - Custom Sass mixins for the theme.
+ * - Custom Sass functions for the theme.
+ * - Overriding the default variables provided by extensions such as Compass.
+ * - Defining new variables for:
+ *      - Colors.
+ *      - Font sizes and families.
+ *      - Layout and grid sizing.
+ ******************************************************************************/
+ 
+// SOME CONVENTIONS + FUNCTIONS ARE COURTESY OF ZURB's FOUNDATION
+
+@function emCalc($pxSize) {
+  @return $pxSize / $em-base * 1rem;
+}
+
+@function active($color){
+  @return lighten($color, 15%);
+}
+
+// Variables
+
+$em-base: 18px;
+$vert-rhythm: 27px; // $em-base * 1.5 
+$small-text: $em-base * .75;
+
+//Typography
+
+$base-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body-font-weight: 300;
+$bold-font-weight: normal;
+
+// Heading font variables
+
+$header-font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-weight: 300;
+$header-font-style: normal;
+$header-line-height: 120%;
+$header-top-margin: .2em;
+$header-bottom-margin: .5em;
+
+// Heading font size variables
+
+$h1-font-size: emCalc(40px);
+$h2-font-size: emCalc(36px);
+$h3-font-size: emCalc(27px);
+$h4-font-size: emCalc(22px);
+$h5-font-size: emCalc(20px);
+$h6-font-size: emCalc(18px);
+
+
+//Colors
+
+$base-color: #fff;
+$text-color: #777;
+$secondary-color: #eee;
+$tertiary-color: #ddd;
+$accent-color: #9d212c;
