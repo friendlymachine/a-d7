@@ -35,6 +35,7 @@ settings[default_favicon] = 1
 settings[favicon_path] = ''
 settings[favicon_upload] = ''
 settings[omega_toggle_extension_layouts] = 1
+settings[omega_layout] = atlas-2-col
 settings[omega_toggle_extension_development] = 1
 settings[omega_rebuild_theme_registry] = 0
 settings[omega_rebuild_aggregates] = 1
