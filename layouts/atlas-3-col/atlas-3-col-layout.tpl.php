@@ -1,8 +1,25 @@
-<div class="l-page atlas-2-col">
+<div class="l-page atlas-3-col">
   <header class="l-header">
       <div class="l-top">
-		    <?php print render($page['header']); ?>
-		    <?php print render($page['navigation']); ?> 
+		    <?php if ($logo): ?>
+          <div class="logo">
+	          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="site-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+	        <?php endif; ?>
+        </div>
+  
+        <?php if ($site_name || $site_slogan): ?>
+          <div class="name-slogan">
+	          <?php if ($site_name): ?>
+	            <h1 class="site-name">
+	              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
+	            </h1>
+	          <?php endif; ?>
+	  
+	          <?php if ($site_slogan): ?>
+	            <h2 class="site-slogan"><?php print $site_slogan; ?></h2>
+	          <?php endif; ?>
+          </div>
+        <?php endif; ?>
 		  </div>     
    </header> 
   

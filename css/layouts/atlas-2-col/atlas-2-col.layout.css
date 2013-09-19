@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000324}}
 .l-header,
 .l-main,
 .l-footer {
@@ -20,7 +20,7 @@
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000333}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000333}}
 .l-region--highlighted,
 .l-region--help,
 .l-region--sidebar-first,
@@ -29,26 +29,26 @@
 }
 
 @media (min-width: 50em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000340}}
   .l-header,
   .l-main,
   .l-footer {
     max-width: 1160px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000345}}
   .l-region--header {
     width: 66.38655%;
     float: right;
     margin-right: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000348}}
   .l-region--navigation {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000355}}
   .l-sidebar-first .l-content,
   .l-sidebar-second .l-content,
   .two-sidebars .l-content {
@@ -56,7 +56,7 @@
     float: left;
     margin-right: 0.84034%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000359}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000359}}
   .l-sidebar-first .l-sidebar-first,
   .l-sidebar-first .l-sidebar-second,
   .l-sidebar-second .l-sidebar-first,
@@ -67,7 +67,7 @@
     float: right;
     margin-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000362}}
   .l-sidebar-first .l-sidebar-second,
   .l-sidebar-second .l-sidebar-second,
   .two-sidebars .l-sidebar-second {
@@ -75,33 +75,33 @@
   }
 }
 @media (min-width: 70em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000371}}
   .l-top,
   .l-main,
   .l-footer {
     max-width: 1160px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000377}}
   .l-sidebar-first .l-content {
     width: 66.38655%;
     float: right;
     margin-right: 0;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000380}}
   .l-sidebar-first .l-sidebar-first {
     width: 24.36975%;
     float: left;
     margin-right: 0.84034%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000385}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000385}}
   .l-sidebar-second .l-content {
     width: 66.38655%;
     float: left;
     margin-right: 0.84034%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000388}}
   .l-sidebar-second .l-sidebar-second {
     width: 24.36975%;
     float: right;
@@ -109,25 +109,25 @@
     clear: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\0000395}}
   .two-sidebars .l-content {
     width: 49.57983%;
     float: left;
     margin-right: 0.84034%;
-    margin-left: 25.21008%;
+    margin-left: 21.0084%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\00003100}}
   .two-sidebars .l-sidebar-first,
   .two-sidebars .l-sidebar-second {
     width: 20.16807%;
     float: left;
     margin-right: 0.84034%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\00003103}}
   .two-sidebars .l-sidebar-first {
     margin-left: -67.22689%;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\00003106}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-2-col\/atlas-2-col\.layout\.scss}line{font-family:\00003106}}
   .two-sidebars .l-sidebar-second {
     float: right;
     margin-right: 0;

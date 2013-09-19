@@ -94,14 +94,14 @@ $desk: 70em 24; // At 70em use 24 columns.
   .two-sidebars {
     .l-content {
       @include span-columns(12, 24); // Span 12 out of 24 columns.
-      @include push(5, 24);  // Push element by adding 5 out of 24 columns of left margin.
+      @include push(6, 24);  // Push element by adding 6 out of 24 columns of left margin.
     }
     .l-sidebar-first,
     .l-sidebar-second {
       @include span-columns(5, 24); // Span 6 out of 24 columns.
     }
     .l-sidebar-first {
-      @include pull(16, 24); // Pull element by adding 16 out of 24 columns of negative left margin.
+      @include pull(18, 24); // Pull element by adding 18 out of 24 columns of negative left margin.
     }
     .l-sidebar-second {
       @include omega; // This element spans the last (omega) column.

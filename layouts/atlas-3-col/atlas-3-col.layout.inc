@@ -1,7 +1,7 @@
-name = Two Column Content
-description = Two column layout for Atlas theme.
+name = Three Column Content
+description = Three column layout for Atlas theme.
 preview = preview.png
-template = atlas-2-col-layout
+template = atlas-3-col-layout
 
 ; Regions
 regions[header]         = Header
@@ -14,4 +14,4 @@ regions[sidebar_second] = Second sidebar
 regions[footer]         = Footer
 
 ; Stylesheets
-stylesheets[all][] = css/layouts/atlas-2-col/atlas-2-col.layout.css
+stylesheets[all][] = css/layouts/atlas-3-col/atlas-3-col.layout.css

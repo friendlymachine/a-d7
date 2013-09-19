@@ -1,0 +1,136 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000324}}
+.l-header,
+.l-main,
+.l-footer {
+  *zoom: 1;
+  max-width: 1160px;
+  _width: 1160px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/\.rvm\/gems\/ruby-1\.9\.3-p448\@omega\.atlas\/gems\/compass-0\.12\.2\/frameworks\/compass\/stylesheets\/compass\/utilities\/general\/_clearfix\.scss}line{font-family:\0000338}}
+.l-header:after,
+.l-main:after,
+.l-footer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000333}}
+.l-region--highlighted,
+.l-region--help,
+.l-region--sidebar-first,
+.l-region--sidebar-second {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 50em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000340}}
+  .l-header,
+  .l-main,
+  .l-footer {
+    max-width: 1160px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000345}}
+  .l-region--header {
+    width: 66.38655%;
+    float: right;
+    margin-right: 0;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000348}}
+  .l-region--navigation {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000355}}
+  .l-sidebar-first .l-content,
+  .l-sidebar-second .l-content,
+  .two-sidebars .l-content {
+    width: 66.38655%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000359}}
+  .l-sidebar-first .l-sidebar-first,
+  .l-sidebar-first .l-sidebar-second,
+  .l-sidebar-second .l-sidebar-first,
+  .l-sidebar-second .l-sidebar-second,
+  .two-sidebars .l-sidebar-first,
+  .two-sidebars .l-sidebar-second {
+    width: 32.77311%;
+    float: right;
+    margin-right: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000362}}
+  .l-sidebar-first .l-sidebar-second,
+  .l-sidebar-second .l-sidebar-second,
+  .two-sidebars .l-sidebar-second {
+    clear: right;
+  }
+}
+@media (min-width: 70em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000371}}
+  .l-top,
+  .l-main,
+  .l-footer {
+    max-width: 1160px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000377}}
+  .l-sidebar-first .l-content {
+    width: 66.38655%;
+    float: right;
+    margin-right: 0;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000380}}
+  .l-sidebar-first .l-sidebar-first {
+    width: 24.36975%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000385}}
+  .l-sidebar-second .l-content {
+    width: 66.38655%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000388}}
+  .l-sidebar-second .l-sidebar-second {
+    width: 24.36975%;
+    float: right;
+    margin-right: 0;
+    clear: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\0000395}}
+  .two-sidebars .l-content {
+    width: 49.57983%;
+    float: left;
+    margin-right: 0.84034%;
+    margin-left: 25.21008%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\00003100}}
+  .two-sidebars .l-sidebar-first,
+  .two-sidebars .l-sidebar-second {
+    width: 20.16807%;
+    float: left;
+    margin-right: 0.84034%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\00003103}}
+  .two-sidebars .l-sidebar-first {
+    margin-left: -75.63025%;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas-theme\/sites\/all\/themes\/atlas\/sass\/layouts\/atlas-3-col\/atlas-3-col\.layout\.scss}line{font-family:\00003106}}
+  .two-sidebars .l-sidebar-second {
+    float: right;
+    margin-right: 0;
+    clear: none;
+  }
+}
