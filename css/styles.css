@@ -1,624 +1,1047 @@
-/*******************************************************************************
- * style.scss
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
  *
- * This file shouldn't directly contain any SCSS code, instead it only serves to
- * combine the SCSS contained in other Sass partials through @import directives.
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
+/* Import Sass mixins, variables, Compass modules, etc. */
+/* HTML element (SMACSS base) rules */
+/**
+ * @file
+ * Normalize.css is intended to be used as an alternative to CSS resets.
  *
- * BASE............Styling for common HTML and Drupal elements.
- * LAYOUT..........Styles for the page structure that contain components.
- * COMPONENTS......Components, their modifiers and sub-components.
- ******************************************************************************/
-/*******************************************************************************
- * _utils.scss
+ * This file is a slight fork of these original sources:
+ * - normalize.css v2.1.2 | MIT License | git.io/normalize
+ * - normalize.scss v2.1.2 | MIT/GPLv2 License | bit.ly/normalize-with-compass
  *
- * Sass offers come very useful features, these include variables functions and
- * mixins. Extensions such as Compass and Susy can also be used to provide extra
- * functions and mixins to be used throughout the theme. This file acts as a
- * single place for defining these things, which can then be accessed by
- * importing _utils.scss where required. The following should be defined in this
- * file:
- * - Custom Sass mixins for the theme.
- * - Custom Sass functions for the theme.
- * - Overriding the default variables provided by extensions such as Compass.
- * - Defining new variables for:
- *      - Colors.
- *      - Font sizes and families.
- *      - Layout and grid sizing.
- ******************************************************************************/
-/*******************************************************************************
- * _base.scss
+ * It's suggested that you read the normalize.scss file and customise it to meet
+ * your needs, rather then including the file in your project and overriding the
+ * defaults later in your CSS.
+ * @see http://nicolasgallagher.com/about-normalize-css/
+ *
+ * Also: @see http://meiert.com/en/blog/20080419/reset-style-sheets-are-bad/
+ *       @see http://snook.ca/archives/html_and_css/no_css_reset/
+ */
+/**
+ * HTML5 display definitions
+ */
+/* Correct `block` display not defined in IE 8/9. */
+/* line 33, ../sass/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
 
- * Base styles define the default look for HTML and common Drupal elements.
+/* Correct `inline-block` display not defined in IE 8/9. */
+/* line 40, ../sass/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 52, ../sass/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Address styling not present in IE 8/9. */
+/* line 58, ../sass/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/**
+ * Base
  *
- * These rules will generally be made up of element selectors for HTML elements
- * such as headings, paragraphs and lists. Common Drupal elements such as form
- * items, collapsible fieldsets and messages should be included in this partial.
+ * Instead of relying on the fonts that are available on a user's computer, you
+ * can use web fonts which, like images, are resources downloaded to the user's
+ * browser. Because of the bandwidth and rendering resources required, web fonts
+ * should be used with care.
  *
- * The styleguide module (http://drupal.org/project/styleguide) gives you a good
- * overview of Drupals common elements for styling. By setting a solid baseline
- * before adding any more specific customisations you ensure that as any new
- * features are added they will be correctly styled without any extra work.
- ******************************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000316}}
+ * Numerous resources for web fonts can be found on Google. Here are a few
+ * websites where you can find Open Source fonts to download:
+ * - http://www.fontsquirrel.com/fontface
+ * - http://www.theleagueofmoveabletype.com
+ *
+ * In order to use these fonts, you will need to convert them into formats
+ * suitable for web fonts. We recommend the free-to-use Font Squirrel's
+ * Font-Face Generator:
+ *   http://www.fontsquirrel.com/fontface/generator
+ *
+ * The following is an example @font-face declaration. This font can then be
+ * used in any ruleset using a property like this:  font-family: Example, serif;
+ *
+ * Since we're using Sass, you'll need to declare your font faces here, then you
+ * can add them to the font variables in the _base.scss partial.
+ */
+/*
+@font-face {
+  font-family: 'Example';
+  src: url('../fonts/example.eot');
+  src: url('../fonts/example.eot?iefix') format('eot'),
+    url('../fonts/example.woff') format('woff'),
+    url('../fonts/example.ttf') format('truetype'),
+    url('../fonts/example.svg#webfontOkOndcij') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ * 3. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ */
+/* line 106, ../sass/_normalize.scss */
+html {
+  font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 3 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  line-height: 1.5em;
+}
+
+/* Address `font-family` inconsistency between `textarea` and other form elements. */
+/* line 120, ../sass/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* Remove default margin. */
+/* line 126, ../sass/_normalize.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Links
+ *
+ * The order of link states are based on Eric Meyer's article:
+ * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
+ */
+/* Address `outline` inconsistency between Chrome and other browsers. */
+/* line 148, ../sass/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/* Improve readability when focused and also mouse hovered in all browsers. */
+/* line 154, ../sass/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Address styling not present in IE 8/9, Safari 5, and Chrome. */
+/* line 159, ../sass/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+/* line 165, ../sass/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* Address styling not present in Safari 5 and Chrome. */
+/* line 170, ../sass/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* Address differences between Firefox and other browsers. */
+/* line 175, ../sass/_normalize.scss */
+hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  border: 1px solid #666;
+  padding-bottom: -1px;
+  margin: 1.5em 0;
+}
+
+/* Address styling not present in IE 8/9. */
+/* line 184, ../sass/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* Correct font family set oddly in Safari 5 and Chrome. */
+/* line 195, ../sass/_normalize.scss */
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+  font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* Improve readability of pre-formatted text in all browsers. */
+/* line 204, ../sass/_normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Set consistent quote types. */
+/* line 216, ../sass/_normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* Address inconsistent and variable font size in all browsers. */
+/* line 221, ../sass/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+/* line 227, ../sass/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 233, ../sass/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 236, ../sass/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Lists
+ */
+/* line 246, ../sass/_normalize.scss */
+dl,
+menu,
+ol,
+ul {
+  /* Address margins set differently in IE 6/7. */
+  margin: 1.5em 0;
+}
+
+/* line 253, ../sass/_normalize.scss */
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  /* Turn off margins on nested lists. */
+  margin: 0;
+}
+
+/* line 258, ../sass/_normalize.scss */
+dd {
+  margin: 0 0 0 30px;
+  /* LTR */
+}
+
+/* Address paddings set differently in IE 6/7. */
+/* line 265, ../sass/_normalize.scss */
+menu,
+ol,
+ul {
+  padding: 0 0 0 30px;
+  /* LTR */
+}
+
+/* Correct list images handled incorrectly in IE 7. */
+/* line 272, ../sass/_normalize.scss */
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+/**
+ * Embedded content and figures
+ *
+ * @todo Look into adding responsive embedded video.
+ */
+/* line 283, ../sass/_normalize.scss */
+img {
+  /* Remove border when inside `a` element in IE 8/9. */
+  border: 0;
+  /* Improve image quality when scaled in IE 7. */
+  -ms-interpolation-mode: bicubic;
+  /* Suppress the space beneath the baseline */
+  /* vertical-align: bottom; */
+  /* Responsive images */
+  max-width: 100%;
+  height: auto;
+  /* Correct IE 8 not scaling image height when resized. */
+  width: auto;
+}
+
+/* Correct overflow displayed oddly in IE 9. */
+/* line 304, ../sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Address margin not present in IE 8/9 and Safari 5. */
+/* line 309, ../sass/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/**
+ * Forms
+ */
+/* Correct margin displayed oddly in IE 6/7. */
+/* line 319, ../sass/_normalize.scss */
+form {
+  margin: 0;
+}
+
+/* Define consistent border, margin, and padding. */
+/* line 325, ../sass/_normalize.scss */
+fieldset {
+  margin: 0 2px;
+  /* Apply borders and padding that keep the vertical rhythm. */
+  border-color: #c0c0c0;
+  border-top-style: solid;
+  border-top-width: 0.0625em;
+  padding-top: 0.4625em;
+  border-bottom-style: solid;
+  border-bottom-width: 0.0625em;
+  padding-bottom: 0.9125em;
+  border-left-style: solid;
+  border-left-width: 0.0625em;
+  padding-left: 0.9125em;
+  border-right-style: solid;
+  border-right-width: 0.0625em;
+  padding-right: 0.9125em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+/* line 340, ../sass/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */
+  /* LTR */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ * 4. Improve appearance and consistency with IE 6/7.
+ * 5. Keep form elements constrained in their containers.
+ */
+/* line 358, ../sass/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+  vertical-align: baseline;
+  /* 4 */
+  *vertical-align: middle;
+  /* 4 */
+  max-width: 100%;
+  /* 5 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 5 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 375, ../sass/_normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 386, ../sass/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+/* line 402, ../sass/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 414, ../sass/_normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+/* line 425, ../sass/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 439, ../sass/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  /* 2 */
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 449, ../sass/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Remove inner padding and border in Firefox 4+. */
+/* line 455, ../sass/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 464, ../sass/_normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* Drupal-style form labels. */
+/* line 470, ../sass/_normalize.scss */
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/**
+ * Tables
+ */
+/* line 478, ../sass/_normalize.scss */
+table {
+  /* Remove most spacing between table cells. */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* Prevent cramped-looking tables */
+  /* width: 100%; */
+  /* Add vertical rhythm margins. */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* HTML ELEMENTS */
+/* line 3, ../sass/_base.scss */
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000321}}
-html, body {
-  height: 100%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000325}}
+/* line 8, ../sass/_base.scss */
 body {
   background: #eeeeee;
-  color: #777777;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000332}}
-h1, h2, h3, h4, h5, h6 {
-  clear: both;
-  color: #777777;
-  font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  line-height: 120%;
-  margin-top: 0.2em;
-  margin-bottom: 0.5em;
-  text-transform: capitalize;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000343}}
-h1, h1 a {
-  font-size: 2.22222rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000347}}
-h1.site-name, h1.site-name a, h2.site-name, h2.site-name a {
-  color: #777777;
-  font-size: 2.65em;
-  font-size: 2.65rem;
-  line-height: 110%;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000355}}
-h2, h2 a {
-  font-size: 2rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000359}}
-h3, h3 a {
-  font-size: 1.5rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000363}}
-h4, h4 a {
-  font-size: 1.22222rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000367}}
-h5, h5 a {
-  font-size: 1.11111rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000371}}
-h6, h6 a {
-  font-size: 1rem;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000375}}
-a, a:link, a:visited {
+/* line 21, ../sass/_base.scss */
+a,
+a:link,
+a:visited,
+a.active {
+  border: none;
   color: #9d212c;
   text-decoration: none;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000380}}
-a:hover, a:focus, a:active {
+/* line 28, ../sass/_base.scss */
+a img, a, img {
+  border: none !important;
+  border-color: none !important;
+}
+
+/* line 35, ../sass/_base.scss */
+a:hover,
+a:focus,
+a:active {
   color: #d53644;
   outline: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000385}}
+/* line 40, ../sass/_base.scss */
 p, ol, ul, blockquote, pre, code, span {
-  color: #777777;
-  font-size: 18px;
+  color: #666666;
+  font-size: 16px;
   font-weight: 300;
   hyphens: auto;
-  line-height: 27px;
-  margin: 0 0 27px 0;
+  line-height: 24px;
+  margin: 0 0 24px 0;
   word-wrap: break-word;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000395}}
+/* line 50, ../sass/_base.scss */
 strong, b {
-  font-weight: normal;
+  font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\0000399}}
-p {
-  clear: both;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003103}}
+/* line 54, ../sass/_base.scss */
 blockquote {
   background: #eeeeee;
   border: 1px solid #dddddd;
   font-style: italic;
-  padding: 18px;
+  padding: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003110}}
+/* line 61, ../sass/_base.scss */
 blockquote p {
   margin-bottom: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003114}}
+/* line 65, ../sass/_base.scss */
 ol, ul {
-  padding-left: 18px;
+  padding-left: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003118}}
+/* line 69, ../sass/_base.scss */
 ul {
   list-style: disc inside;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003122}}
+/* line 73, ../sass/_base.scss */
 ol {
   list-style: decimal inside;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003126}}
-.l-page {
-  border-top: 5px solid #9d212c;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003130}}
-.l-main {
-  background: white;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003134}}
-.l-main li {
-  margin-bottom: 9px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003138}}
-ul.breadcrumb {
-  margin: 27px 0;
-  padding-left: 0;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003143}}
-ul.breadcrumb li {
-  display: inline-block;
-  font-size: 15.75px;
-  margin-right: 18px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003149}}
-.breadcrumb-sep {
-  color: #dddddd;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003153}}
-.menu .leaf, ul.breadcrumb li {
-  list-style: none;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003157}}
-img {
-  height: auto;
-  max-width: 100%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003162}}
-.image-left {
-  float: left;
-  height: auto;
-  margin: 5px 15px 5px 0;
-  max-width: 50%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003169}}
-.image-right {
-  float: right;
-  height: auto;
-  margin: 5px 0 5px 15px;
-  max-width: 50%;
-}
-
-/* Responsive video - was using FitVids but current version breaks IMCE 
-   https://drupal.org/node/1578130   
-   Second part of this fix is in basis.js
-*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003181}}
-p.fitvids, div.fitvids {
-  height: 0;
-  margin: 0 0 27px 0;
-  position: relative;
-  padding-bottom: 54.9%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003190}}
-.fitvids iframe,
-.fitvids object,
-.fitvids embed {
-  left: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003200}}
-.fitvids iframe,
-.fitvids object,
-.fitvids embed {
-  border: 1px solid #dddddd;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003204}}
-.callout-box {
-  background: #9d212c;
-  padding: 18px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003211}}
-.callout-box p,
-.callout-box h2,
-.callout-box li {
-  color: white;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003215}}
-figure {
-  margin: 0;
-  padding: 0;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003220}}
-section.comments {
-  border-top: 1px solid #dddddd;
-  margin-top: 27px;
-  padding-top: 27px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003226}}
-article.comment {
-  border-bottom: 1px solid #dddddd;
-  margin-bottom: 27px;
-  padding-bottom: 27px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003233}}
-.submitted,
-footer a.permalink {
-  font-size: 13.5px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_base\.scss}line{font-family:\00003237}}
-.messages.status {
-  background: #6aa5e8;
-  color: #fff;
-}
-
-/*******************************************************************************
- * _layout.scss
- *
- * The layout of the major regions (usually, but not necessarily Drupal regions)
- * that components will be placed within. Layout styles for the theme's
- * components should not be placed here and should instead be kept with the
- * relevant SCSS for that component.
- ******************************************************************************/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000314}}
-.l-top {
-  padding-bottom: 18px;
-  padding-top: 18px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000319}}
-.l-header {
-  margin-bottom: 27px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000323}}
-.l-main {
-  margin-bottom: 27px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000327}}
-.l-branding-wrapper {
-  padding: 18px 0;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000331}}
-.logo {
-  width: 6.77966%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000335}}
-.site-info {
-  width: 23.72881%;
-  float: left;
-  margin-right: 1.69492%;
-  display: inline;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000339}}
-.footer-wrapper {
-  width: 100%;
-}
-
-@media (min-width: 50em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000348}}
-  .l-sidebar-second .block,
-  .l-sidebar-first .block {
-    margin-bottom: 54px;
-  }
-}
-@media (min-width: 70em) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_layout\.scss}line{font-family:\0000356}}
-  .l-logo a img {
-    height: 72px;
-    margin-top: 0;
-    width: auto;
-  }
-}
-/*******************************************************************************
- * _components.scss
- *
- * Imports more partials that contain full components (modules in SMACSS), their
- * sub-components and modifiers.
- *
- * Components are discrete parts of your page that should sit within the regions
- * of your layouts. You should try to abstract your components as much as
- * possible to promote reuse throughout the theme. Components should be flexible
- * enough to respond to any width and should never rely on context
- * (e.g. .sidebar-first .component) for styling. This allows modules to be
- * placed throughout the theme with no risk of them breaking.
- *
- * If you find you need to change the look of a component depending on it's
- * context you should avoid using context based classes at all costs. Instead it
- * is better to add another "modifier" class to the component to alter the
- * styling. Again, this promotes reuse.
- *
- * Sub-components are the individual parts that make up a component. As a
- * general rule, adding a class to target a sub-component is a much better
- * option than using descendant selectors or element selectors. In many cases
- * sub-components can be made more reusable by making them components in their
- * own right, so they can then be used within other components.
- *
- * Almost everything that doesn't belong in base should be made a component.
- * Here's some common examples throughout Drupal:
- *
- * - Blocks
- * - Content Types - For example, you may have a generic node component that
- *      contains sub-components for the submitted by line and links. Specific
- *      components can then be created for each content type to style the
- *      specifics of each. Finally, by using entity view modes you can easily
- *      apply modifications based on the .node-[view-mode] classes.
- * - Forms - For instance the log in form.
- * - Views - Each views output style could be made into a component, the content
- *       of each row should be provided my a view mode styled by it's component
- *       CSS. Exposed filter forms, views pagers and other views elements are
- *       also good candidates for components.
- ******************************************************************************/
+/* Component (SMACSS module) rules */
 /* VIEWS STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000344}}
-.view-content .row,
-.page-taxonomy .row {
-  margin-bottom: 27px;
-  padding-bottom: 27px;
+/* FORM STYLES */
+/* line 3, ../sass/components/_forms.scss */
+label {
+  margin-bottom: .5rem;
 }
 
-/* END VIEW STYLES */
+/* line 14, ../sass/components/_forms.scss */
+input[type='text'],
+textarea,
+select,
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"] {
+  border: 1px solid #dddddd;
+  box-shadow: 0 0 2px #eeeeee inset;
+  color: #666666;
+  font-size: 28.8px;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  height: 2.25rem;
+  padding: 0 .5rem;
+}
+/* line 21, ../sass/components/_forms.scss */
+input[type='text']:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus {
+  outline: none;
+  outline-width: 0;
+}
+
+/* line 27, ../sass/components/_forms.scss */
+textarea {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  min-height: 200px;
+}
+
+/* line 38, ../sass/components/_forms.scss */
+button, input[type="reset"],
+input[type="submit"],
+input[type="button"],
+.comment-links a,
+.button {
+  background: #9d212c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 5px 10px;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+/* line 45, ../sass/components/_forms.scss */
+button:hover, input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.comment-links a:hover,
+.button:hover {
+  background: #c72a38;
+}
+
+/* line 57, ../sass/components/_forms.scss */
+input[type='text']:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus {
+  border: 1px solid #9d212c;
+  box-shadow: 0 0 2px #9d212c inset;
+}
+
 /* TABLE STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000354}}
+/* line 3, ../sass/components/_tables.scss */
 table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: 27px;
+  margin-bottom: 24px;
   max-width: 100%;
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000364}}
+/* line 12, ../sass/components/_tables.scss */
+tbody {
+  border: 1px solid #dddddd;
+}
+
+/* line 17, ../sass/components/_tables.scss */
 table th,
 table td {
-  font-weight: 300;
-  padding: 9px;
+  padding: .75em;
   line-height: 24px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #eeeeee;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000373}}
+/* line 24, ../sass/components/_tables.scss */
 table th {
+  border-bottom: 0;
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000377}}
+/* line 29, ../sass/components/_tables.scss */
+tbody {
+  border-top: 0;
+}
+
+/* line 33, ../sass/components/_tables.scss */
 table thead th {
   vertical-align: bottom;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000382}}
+/* line 38, ../sass/components/_tables.scss */
 table tbody > tr:nth-child(odd) > td,
 table tbody > tr:nth-child(odd) > th {
   background-color: #eeeeee;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000387}}
-table tbody tr:hover > td,
-table tbody tr:hover > th {
-  background-color: #d53644;
-  color: white;
+/* line 43, ../sass/components/_tables.scss */
+table tbody > tr:nth-child(even) > td,
+table tbody > tr:nth-child(even) > th {
+  background-color: white;
 }
 
-/* END TABLE STYLES */
-/* CONTENT TYPE + DISPLAY SUITE STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\0000396}}
-.field-name-field-tags {
-  padding-bottom: 27px;
+/* line 1, ../sass/components/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  color: #666666;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003100}}
-.label-inline {
-  font-weight: bold;
-  line-height: 24px;
+/* line 6, ../sass/components/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 140%;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003105}}
-.label-above {
-  line-height: 24px;
+/* line 14, ../sass/components/_typography.scss */
+h1, h1 a {
+  font-size: 2.875rem;
 }
 
-/* END CONTENT TYPE + DISPLAY SUITE STYLES */
-/* PAGER STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003113}}
-ul.pager {
-  background: none;
-  border: none;
-  display: inline-block;
+/* line 19, ../sass/components/_typography.scss */
+.site-name h1, .site-name h1 a, .site-name h2, .site-name h2 a {
+  color: #666666;
+  font-size: 2.875rem;
+  margin: 0;
+}
+
+/* line 26, ../sass/components/_typography.scss */
+h2, h2 a {
+  font-size: 2rem;
+}
+
+/* line 30, ../sass/components/_typography.scss */
+h3, h3 a, h2.block__title {
+  font-size: 1.45313rem;
+}
+
+/* line 34, ../sass/components/_typography.scss */
+h4, h4 a {
+  font-size: 1rem;
+}
+
+/* line 38, ../sass/components/_typography.scss */
+h5, h5 a {
+  font-size: 0.72656rem;
+}
+
+/* line 42, ../sass/components/_typography.scss */
+h6, h6 a {
+  font-size: 0.5rem;
+}
+
+/* MENU STYLES */
+/* line 4, ../sass/components/_menus.scss */
+.main-menu {
   float: right;
+}
+/* line 6, ../sass/components/_menus.scss */
+.main-menu li {
+  display: inline-block;
   list-style: none;
+  padding-right: 1rem;
+}
+/* line 10, ../sass/components/_menus.scss */
+.main-menu li:last-child {
+  padding-right: 0;
+}
+/* line 13, ../sass/components/_menus.scss */
+.main-menu li a, .main-menu li a.active {
+  color: #666666;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* line 1, ../sass/components/_regions.scss */
+#page {
+  border: 1px solid #dddddd;
+  margin: 0 auto;
+  max-width: 1024px;
+  background: white;
+  padding: 0 30px 30px 30px;
+}
+
+/* line 12, ../sass/components/_regions.scss */
+header,
+.main,
+footer {
   overflow: hidden;
-  text-align: right;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003123}}
-ul.pager li {
-  border: none;
-  font-size: 18px;
-  padding: .5em 0 .5em 1em;
+/* header region */
+/* line 18, ../sass/components/_regions.scss */
+header {
+  padding: 1rem 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003129}}
-ul.pager li a {
-  border: none;
+/* preface region */
+/* content region */
+/* sidebar region */
+/* footer region */
+/* line 36, ../sass/components/_regions.scss */
+footer {
+  clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003134}}
-.pager li.pager-next,
-.pager li.pager-previous {
-  text-transform: capitalize;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003138}}
-.pager li.pager-current {
-  font-weight: normal;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003142}}
-.pager li, .pager li.pager-next, .pager li.pager-previous, .pager li.pager-last, .pager li.pager-first {
-  border: none;
-  margin-left: 1em;
-  position: relative;
-  text-align: right;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003149}}
-.pager li.pager-first a, .pager li.pager-previous a, .pager li.pager-next a, .pager li.pager-last a {
-  display: inline-block;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003154}}
-.pager li.pager-next,
-.pager li.pager-current {
-  float: right;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003158}}
-.pager li.pager-previous {
+/**
+ * @file
+ * Responsive layout using Singularity and Breakpoint.
+ *
+ */
+/* line 13, ../sass/components/_layout.scss */
+.header__left {
+  width: 44.18605%;
   float: left;
+  margin-right: -100%;
+  margin-left: 0%;
+  clear: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003162}}
-.item-list .pager li {
-  padding: .25em 1em;
+/* line 17, ../sass/components/_layout.scss */
+.header__right {
+  width: 53.48837%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
 }
 
-/* END PAGER STYLES */
-/* BEGIN FORM STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003170}}
-.form-textarea-wrapper textarea {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0;
-  height: 200px;
+@media (min-width: 40.62rem) {
+  /* line 24, ../sass/components/_layout.scss */
+  .one-sidebar.sidebar-first #content {
+    width: 72.09302%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+  }
+  /* line 27, ../sass/components/_layout.scss */
+  .one-sidebar.sidebar-first .region-sidebar-first {
+    width: 25.5814%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0%;
+    clear: none;
+  }
+}
+@media (min-width: 40.62rem) {
+  /* line 34, ../sass/components/_layout.scss */
+  .one-sidebar.sidebar-second #content {
+    width: 72.09302%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 0%;
+    clear: none;
+  }
+  /* line 37, ../sass/components/_layout.scss */
+  .one-sidebar.sidebar-second .region-sidebar-first {
+    width: 25.5814%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+  }
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003179}}
-button, input[type="reset"], input[type="submit"], input[type="button"],
-.comment-links a, .button {
-  background: #9d212c;
-  border: none;
-  border-radius: 9px;
-  color: white;
-  font-size: 18px;
-  margin: 4px 2px;
-  padding: 8px 16px;
-  padding: .5rem 1rem;
-  text-shadow: none;
+/* MISC STYLES */
+/* line 5, ../sass/components/_misc.scss */
+.contextual {
+  width: 28px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_components\.scss}line{font-family:\00003191}}
-button:hover, input[type="reset"]:hover, input[type="submit"]:hover, input[type="button"]:hover,
-.comment-links a:hover, .button:hover {
-  background: #c72a38;
-  color: white !important;
-  cursor: pointer;
+/* line 11, ../sass/components/_misc.scss */
+.img-right {
+  float: right;
+  height: auto;
+  padding: 5px 0 5px 15px;
+  max-width: 50%;
 }
 
-/* END FORM STYLES */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\000031}}
-.l-header ul.menu {
-  margin: 0;
-  padding-left: 0;
+/* line 18, ../sass/components/_misc.scss */
+.img-left {
+  float: left;
+  height: auto;
+  padding: 5px 15px 5px 0;
+  max-width: 50%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\000036}}
-.l-header ul.menu li {
-  display: inline-block;
-}
+/**
+ * @file
+ * Print styling (from Zen)
+ *
+ * We provide some sane print styling for Drupal using Zen's layout method.
+ */
+/**
+ * By importing this CSS file as media "all", we allow this print file to be
+ * aggregated with other stylesheets, for improved front-end performance.
+ */
+@media print {
+  /* Underline all links. */
+  /* line 16, ../sass/_print.scss */
+  a:link,
+  a:visited {
+    text-decoration: underline !important;
+    /* Don't underline header. */
+  }
+  /* line 20, ../sass/_print.scss */
+  a:link.header__site-link,
+  a:visited.header__site-link {
+    text-decoration: none !important;
+  }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\0000311}}
-.sf-menu li a:after,
-.l-header ul.menu li a:after {
-  color: #dddddd;
-  content: "/";
-  padding: 36px;
-}
+  /* line 25, ../sass/_print.scss */
+  #content {
+    /* Add visible URL after links. */
+    /* Only display useful links. */
+    /* Add visible title after abbreviations. */
+  }
+  /* line 27, ../sass/_print.scss */
+  #content a[href]:after {
+    content: " (" attr(href) ")";
+    font-weight: normal;
+    font-size: 16px;
+  }
+  /* line 35, ../sass/_print.scss */
+  #content a[href^="javascript:"]:after,
+  #content a[href^="#"]:after {
+    content: "";
+  }
+  /* line 40, ../sass/_print.scss */
+  #content abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\0000318}}
-.sf-menu li:last-child a:after,
-.l-header ul.menu li:last-child a:after {
-  content: "";
-}
+  /* Un-float the content. */
+  /* line 46, ../sass/_print.scss */
+  #content {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\0000322}}
-.l-main ul.menu, ol.menu {
-  padding-left: 18px;
-}
+  /* Turn off any background colors or images. */
+  /* line 57, ../sass/_print.scss */
+  body,
+  #page,
+  #main,
+  #content {
+    color: #000;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\0000326}}
-.l-main ul.menu li {
-  border-bottom: 1px solid #eeeeee;
-  margin-bottom: 9px;
-  padding-bottom: 9px;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/John\/Dropbox\/MAMP\/atlas\/sites\/all\/themes\/atlas\/sass\/_menu\.scss}line{font-family:\0000332}}
-.l-main ul.menu li.last {
-  border-bottom: none;
+  /* Hide sidebars and nav elements. */
+  /* line 77, ../sass/_print.scss */
+  #skip-link,
+  #toolbar,
+  #navigation,
+  .region-sidebar-first,
+  .region-sidebar-second,
+  #footer,
+  .breadcrumb,
+  .tabs,
+  .action-links,
+  .links,
+  .book-navigation,
+  .forum-topic-navigation,
+  .pager,
+  .feed-icons {
+    visibility: hidden;
+    display: none;
+  }
 }

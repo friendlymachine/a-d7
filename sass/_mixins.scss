@@ -1,0 +1,42 @@
+// @file
+// Makes an element visually hidden, but accessible.
+// @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+@mixin element-invisible {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax.
+  }
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Turns off the element-invisible effect.
+@mixin element-invisible-off {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+// font size in rems with fallback
+
+@mixin font-size ($sizeValue: 1) {
+  font-size: ($sizeValue * 16) + px;
+  font-size: $sizeValue + rem;
+  line-height: 1.4;
+}
+
+@mixin padding-side ($sizeValue: 1, $side: left) {
+  
+}
+
+@mixin trans-all () {
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  -webkit-transition: all .3s;
+  transition: all .3s; 
+} 

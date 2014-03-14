@@ -1,0 +1,72 @@
+$base-font-size:   16px; // The font size set on the root html element.
+$base-line-height: 24px; // This line-height determines the basic unit of vertical rhythm.
+
+$remBase: 16px;
+
+// get size in rems
+@function remCalc($pxSize) {
+  $remSize: $pxSize / $remBase;
+  @return #{$remSize}rem;
+}
+
+
+// Heading sizes - modular scale using 16 as base #1 and 93 (column width at desktop) as base #2
+$h1-font-size: remCalc(46.5px);
+$h2-font-size: remCalc(32px);
+$h3-font-size: remCalc(23.25px);
+$h4-font-size: remCalc(16px);
+$h5-font-size: remCalc(11.625px);
+$h6-font-size: remCalc(8px);
+
+// Font families
+$courier: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+$sans: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+// Font variables
+$base-font-family: $sans; // The font family set on the html element.
+$body-font:        $sans;
+$font-monospace:   $courier;
+$body-font-weight: 300;
+$bold-font-weight: 700;
+
+$header-font-family: $sans;
+$header-font-weight: 300;
+$header-font-style: normal;
+$header-line-height: 140%;
+$header-top-margin: 0;
+$header-bottom-margin: .5em;
+
+// Colors
+$primary-color: #ddd;
+$secondary-color: #eee;
+$accent-color: #9d212c;
+$text-color: #666;
+$white: #fff;
+
+// Indentation of lists, blockquotes and comments.
+$indent-amount: 30px;
+
+// =============================================================================
+// Partials to be shared with all .scss files.
+// =============================================================================
+
+// Add Compass' IE and vendor prefix support variables.
+@import "compass/support";
+
+// Better than Drupal's clearfix.
+@import "compass/utilities/general/clearfix";
+
+// See http://compass-style.org/help/tutorials/spriting/
+@import "compass/utilities/sprites";
+
+// Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/css3";
+
+// Helps set up a vertical rhythm.
+@import "compass/typography/vertical_rhythm";
+
+// Now we add our custom helper mixins.
+@import "mixins";
+
+// Singularity grid system
+@import "singularitygs";

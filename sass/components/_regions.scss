@@ -1,0 +1,38 @@
+#page {
+  border: 1px solid $primary-color;
+  margin: 0 auto;
+  max-width: 1024px;
+  background: $white;
+  padding: 0 30px 30px 30px;
+
+}
+
+header,
+.main,
+footer {
+	overflow: hidden;
+}
+
+/* header region */
+
+header {
+	padding: 1rem 0;
+}
+
+/* preface region */
+
+/* content region */
+
+#main {
+	
+}
+
+
+/* sidebar region */
+
+
+/* footer region */
+
+footer {
+	clear: both;
+}

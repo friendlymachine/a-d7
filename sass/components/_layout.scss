@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Responsive layout using Singularity and Breakpoint.
+ *
+ */
+
+$grids: 11;
+$gutters: 1/3;
+
+$tab: 40.62rem;
+$desk: 60rem;
+
+.header__left {
+  @include grid-span(5, 1);
+}
+
+.header__right {
+  @include grid-span(6, 6);
+}
+
+.one-sidebar {
+  &.sidebar-first {
+    @include breakpoint($tab) {
+    #content {
+      @include grid-span(8, 4);
+    }
+    .region-sidebar-first {
+      @include grid-span(3, 1);
+    }
+    } 
+  }
+  &.sidebar-second {
+    @include breakpoint($tab) {
+    #content {
+      @include grid-span(8, 1);
+    }
+    .region-sidebar-first {
+      @include grid-span(3, 9);
+    }
+    } 
+  }
+}
+

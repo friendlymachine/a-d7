@@ -1,122 +1,58 @@
-Introduction to Sass (http://sass-lang.com/)
-============================================
-Sass makes CSS fun again. Sass is an extension of CSS3, adding nested rules,
-variables, mixins, selector inheritance, and more. It’s translated to well-
-formatted, standard CSS using the command line tool or a web-framework plugin.
+ABOUT SASS AND COMPASS
+----------------------
 
-Sass has two syntaxes. The new main syntax (as of Sass 3) is known as “SCSS”
-(for “Sassy CSS”), and is a superset of CSS3’s syntax. This means that every
-valid CSS3 stylesheet is valid SCSS as well. SCSS files use the extension .scss.
+This directory includes Sass versions of Zen's CSS files. (If you are wondering
+how these Sass files are organized, read the css/README.txt file.)
 
-The second, older syntax is known as the indented syntax (or just “Sass”).
-Inspired by Haml’s terseness, it’s intended for people who prefer conciseness
-over similarity to CSS. Instead of brackets and semicolons, it uses the
-indentation of lines to specify blocks. Although no longer the primary syntax,
-the indented syntax will continue to be supported. Files in the indented syntax
-use the extension .sass.
+Sass is a language that is just normal CSS plus some extra features, like
+variables, nested rules, math, mixins, etc. If your stylesheets are written in
+Sass, helper applications can convert them to standard CSS so that you can
+include the CSS in the normal ways with your theme.
 
-@see http://sass-lang.com/docs.html
-  Please refer to the Sass documentation for further information about the
-  syntax.
+To learn more about Sass, visit: http://sass-lang.com
 
-Introduction to Compass (http://compass-style.org/)
-===================================================
-Compass is an open-source CSS Authoring Framework.
+Compass is a helper library for Sass. It includes libraries of shared mixins, a
+package manager to add additional extension libraries, and an executable that
+can easily convert Sass files into CSS.
 
-@see http://compass-style.org/reference
-  Please refer to the Compass documentation for further information on how to
-  leverage the powerful Compass framework.
+To learn more about Compass, visit: http://compass-style.org
 
-Compass extensions
-==================
-There are many extensions available for Compass. You can install and use as many
-of them together or just a single one depending on your use-case. Good examples
-for useful Compass extensions are "susy" (a responsive grid framework
-[http://susy.oddbird.net/]) or "compass-rgbapng" (a rgba() .png file generator)
-but there are many more.
 
-Setting up and using Sass and Compass
-=====================================
-Compass runs on any computer that has ruby installed.
+DEVELOPING WITH SASS AND COMPASS
+--------------------------------
 
-@see http://www.ruby-lang.org/en/downloads
-  For a tutorial on how to install ruby.
+To automatically generate the CSS versions of the scss while you are doing theme
+development, you'll need to tell Compass to "watch" the sass directory so that
+any time a .scss file is changed it will automatically place a generated CSS
+file into your sub-theme's css directory:
 
-Once you got ruby installed you can easily install the required gems from the
-command line:
+  compass watch <path to your sub-theme's directory>
 
-$ gem update --system
-$ gem install compass
+  If you are already in the root of your sub-theme's directory, you can simply
+  type:  compass watch
 
-Any additional library can be installed in the same way:
-$ gem install compass-rgbapng
-$ gem install susy
+While using generated CSS with Firebug, the line numbers it reports will be
+wrong since it will be showing the generated CSS file's line numbers and not the
+line numbers of the source Sass files. To correct this problem, you can install
+the FireSass plug-in into Firefox and then edit your sub-theme's config.rb file
+to set: firesass = true
+  https://addons.mozilla.org/en-US/firefox/addon/firesass-for-firebug/
 
-Once you have set up your environment you can navigate to the folder that holds
-your config.rb file.
 
-The config.rb file is the configuration file that helps Sass and Compass to
-understand your environment. For example, it defines which folder your .scss
-or .sass files are stored in or where the generated .css files should be output
-to.
+MOVING YOUR CSS TO PRODUCTION
+-----------------------------
 
-Executing the following command will constantly watch for any change in your
-.scss files and re-compile them into .css:
+Once you have finished your sub-theme development and are ready to move your CSS
+files to your production server, you'll need to tell sass to update all your CSS
+files and to compress them (to improve performance). Note: the Compass command
+will only generate CSS for .scss files that have recently changed; in order to
+force it to regenerate all the CSS files, you can use the Compass' clean command
+to delete all the generated CSS files.
 
-$ compass watch
+- Delete all CSS files by running: compass clean
+- Edit the config.rb file in your theme's directory and uncomment this line by
+  deleting the "#" from the beginning:
+    #environment = :production
+- Regenerate all the CSS files by running: compass compile
 
-You can also clear and recompile your .css manually:
-
-$ compass clean
-$ compass compile
-
-Barebones Sass Structure
-========================
-The barebones CSS structure provided in this starterkit uses many of the ideas
-discussed in Jonathan Snook's SMACSS (http://smacss.com/) and is intended to
-provide a starting point for building modular, scalable CSS using Sass and
-Drupal.
-
-Multiple Sass partials are used to help organise the styles, these are combined
-by including them in style.scss which is compiled into style.css in the css/
-directory.
-
-All styles are included in order of specificity, this means that as you go down
-the document each section builds upon and inherits sensibly from the previous
-ones. This results in less undoing of styles, less specificity problems and
-all-round better architected and lighter stylesheets.
-
-Multiple Sass partials are used to help organise the styles, these are combined
-by including them in style.scss which is compiled into style.css in the css/
-directory. By separating our Sass into a file and folder structure makes finding
-the correct code much easier than scrolling through a large file.
-
-All styles are included in order of specificity, this means that as you go
-down the document each section builds upon and inherits sensibly from the
-previous ones. This results in less undoing of styles, less specificity
-problems and all-round better architected and lighter stylesheets.
-
-The file structure contained in this folder looks something like this:
-    *   styles.scss
-        This file shouldn't directly contain any CSS code, instead
-        it only serves to combine the CSS contained in other Sass partials
-        through @import directives.
-
-    *   _utils.scss
-        Global Sass variables and mixins should be defined here along with
-        importing any Sass extensions required. These can then be accessed by
-        importing _utils.scss where required.
-
-    *   _base.scss
-        These rules are the "Branding" of a theme also describe how common HTML
-        and Drupal elements should look. Once this file is completed the
-        theme's styleguide should be completely styled.
-
-    *   _layout.scss
-        The layout of the major regions (usually, but not necessarily Drupal
-        regions) that components will be added to.
-
-    *   _components.scss
-        Imports more partials that contain full components and their
-        sub-components ('modules' in SMACSS) that can be placed within the
-        layout provided by _layout.scss.
+And don't forget to turn on Drupal's CSS aggregation. :-)

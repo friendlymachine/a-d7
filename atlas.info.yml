@@ -1,0 +1,24 @@
+name: Atlas
+type: theme
+description: 'A variable column theme for Drupal 8'
+package: FM
+version: VERSION
+core: 8.x
+stylesheets:
+  screen:
+    - css/styles.css
+edit_stylesheets:
+
+settings:
+  # @todo D8: Remove once themes have to be installed.
+  shortcut_module_link: '1'
+regions:
+  content: Content
+  footer: Footer
+  header: 'Header'
+  preface: 'Preface'
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+# regions_hidden:
+
+# 'base theme': xx

@@ -1,110 +1,61 @@
-/*******************************************************************************
- * _base.scss
-
- * Base styles define the default look for HTML and common Drupal elements.
- *
- * These rules will generally be made up of element selectors for HTML elements
- * such as headings, paragraphs and lists. Common Drupal elements such as form
- * items, collapsible fieldsets and messages should be included in this partial.
- *
- * The styleguide module (http://drupal.org/project/styleguide) gives you a good
- * overview of Drupals common elements for styling. By setting a solid baseline
- * before adding any more specific customisations you ensure that as any new
- * features are added they will be correctly styled without any extra work.
- ******************************************************************************/
+/* HTML ELEMENTS */
 
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   background: $secondary-color;
+  font-family: $sans;
+  font-weight: $body-font-weight;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
   color: $text-color;
-  font-family: $base-family;
-  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  clear: both;
-  color: $text-color;
-  font-family: $header-font-family;
-  font-weight: $header-font-weight;
-  line-height: $header-line-height;
-  margin-top: $header-top-margin;
-  margin-bottom: $header-bottom-margin;
-  text-transform: capitalize;
-}
 
-h1, h1 a {
-  font-size: $h1-font-size;
-}
-
-h1.site-name, h1.site-name a, h2.site-name, h2.site-name a {
-  color: $text-color;
-  font-size: 2.65em; font-size: 2.65rem;
-  line-height: 110%;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-h2, h2 a {
-  font-size: $h2-font-size;
-}
-
-h3, h3 a {
-  font-size: $h3-font-size;
-}
-
-h4, h4 a {
-  font-size: $h4-font-size;
-}
-
-h5, h5 a {
-  font-size: $h5-font-size;
-}
-
-h6, h6 a {
-  font-size: $h6-font-size;
-}
-
-a, a:link, a:visited {
+a,
+a:link,
+a:visited,
+a.active {
+  border: none;
   color: $accent-color;
   text-decoration: none;
+  @include trans-all;
 }
 
-a:hover, a:focus, a:active {
-  color: active($accent-color);
+a img, a, img {
+  border: none !important;
+  border-color: none !important;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: lighten($accent-color, 15%);
   outline: none;
 }
 
 p, ol, ul, blockquote, pre, code, span {
   color: $text-color;
-  font-size: $em-base;
+  font-size: $base-font-size;
   font-weight: $body-font-weight;
   hyphens: auto;
-  line-height: $vert-rhythm;
-  margin: 0 0 $vert-rhythm 0;
+  line-height: $base-line-height;
+  margin: 0 0 $base-line-height 0;
   word-wrap: break-word;
 }
 
 strong, b {
-  font-weight: $bold-font-weight;
-}
-
-p {
-  clear: both;
+  font-weight: bold;
 }
 
 blockquote {
   background: $secondary-color;
-  border: 1px solid $tertiary-color;
+  border: 1px solid $primary-color;
   font-style: italic;
-  padding: $em-base;
+  padding: 1em;
 }
 
 blockquote p {
@@ -112,129 +63,14 @@ blockquote p {
 }
 
 ol, ul {
-  padding-left: $em-base;
+  padding-left: 1em;
 }
 
 ul {
-	list-style: disc inside;
+  list-style: disc inside;
 }
 
 ol {
-	list-style: decimal inside;
+  list-style: decimal inside;
 }
 
-.l-page {
-  border-top: 5px solid $accent-color;
-}
-
-.l-main {
-  background: $base-color;
-}
-
-.l-main li {
-  margin-bottom: $vert-rhythm / 3;
-}
-
-ul.breadcrumb {
-  margin: $vert-rhythm 0;
-  padding-left: 0;
-}
-
-ul.breadcrumb li {
-  display: inline-block;
-  font-size: $em-base * .875;
-  margin-right: $em-base;
-}
-
-.breadcrumb-sep {
-  color: $tertiary-color;
-}
-
-.menu .leaf, ul.breadcrumb li {
-  list-style: none;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-}
-
-.image-left {
-  float: left;
-  height: auto;
-  margin: 5px 15px 5px 0;
-  max-width: 50%;
-}
-
-.image-right {
-  float: right;
-  height: auto;
-  margin: 5px 0 5px 15px;
-  max-width: 50%;
-}
-
-/* Responsive video - was using FitVids but current version breaks IMCE 
-   https://drupal.org/node/1578130   
-   Second part of this fix is in basis.js
-*/
-
-p.fitvids, div.fitvids {
-  height: 0;
-  margin: 0 0 $vert-rhythm 0;
-  position: relative;
-  padding-bottom: 54.9%; 
-}
-
-.fitvids iframe,
-.fitvids object,
-.fitvids embed {
-  left: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.fitvids iframe,
-.fitvids object,
-.fitvids embed {
-	border: 1px solid $tertiary-color;
-}
-
-.callout-box {
-  background: $accent-color;
-  padding: $em-base;
-}
-
-.callout-box p,
-.callout-box h2,
-.callout-box li {
-color: $base-color;
-}
-
-figure {
-  margin: 0;
-  padding: 0;
-}
-
-section.comments {
-  border-top: 1px solid $tertiary-color;
-  margin-top: $vert-rhythm;
-  padding-top: $vert-rhythm;  
-}
-
-article.comment {
-  border-bottom: 1px solid $tertiary-color;
-  margin-bottom: $vert-rhythm;
-  padding-bottom: $vert-rhythm;  
-}
-
-.submitted,
-footer a.permalink {
-  font-size: $em-base * .75;
-}
-
-.messages.status {
-  background: #6aa5e8;
-  color: #fff;
-}

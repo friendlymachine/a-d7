@@ -1,17 +1,29 @@
-/*******************************************************************************
- * style.scss
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
  *
- * This file shouldn't directly contain any SCSS code, instead it only serves to
- * combine the SCSS contained in other Sass partials through @import directives.
- *
- * BASE............Styling for common HTML and Drupal elements.
- * LAYOUT..........Styles for the page structure that contain components.
- * COMPONENTS......Components, their modifiers and sub-components.
- ******************************************************************************/
+ * When you turn on CSS aggregation at admin/config/development/performance, all
+ * of these @include files will be combined into a single file.
+ */
 
-@import "utils";
+/* Import Sass mixins, variables, Compass modules, etc. */
+@import "init";
+
+/* HTML element (SMACSS base) rules */
+@import "normalize";
 @import "base";
-@import "layout";
-@import "components";
-@import "menu";
 
+
+/* Component (SMACSS module) rules */
+@import "components/views";
+@import "components/blocks";
+@import "components/forms";
+@import "components/tables";
+@import "components/typography";
+@import "components/menus";
+@import "components/regions";
+@import "components/layout";
+@import "components/misc";
+
+// Optionally, add your own components here.
+@import "print";

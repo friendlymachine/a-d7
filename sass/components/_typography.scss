@@ -1,0 +1,44 @@
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  font-weight: $header-font-weight;
+  line-height: $header-line-height;
+  margin-top: 0;
+  margin-bottom: $header-bottom-margin;
+}
+
+h1, h1 a {
+  font-size: remCalc(46px);
+}
+
+.site-name {
+  h1, h1 a, h2, h2 a {
+    color: $text-color;
+    font-size: remCalc(46px);
+    margin: 0;
+  }
+}
+
+h2, h2 a {
+  font-size: $h2-font-size;
+}
+
+h3, h3 a, h2.block__title {
+  font-size: $h3-font-size;
+}
+
+h4, h4 a {
+  font-size: $h4-font-size;
+}
+
+h5, h5 a {
+  font-size: $h5-font-size;
+}
+
+h6, h6 a {
+  font-size: $h6-font-size;
+}
