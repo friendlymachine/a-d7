@@ -1,1 +1,0 @@
-## Atlas is a theme for Drupal 8 (under development)

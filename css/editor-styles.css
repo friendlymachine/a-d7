@@ -1,0 +1,67 @@
+h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  font-weight: bold !important;
+  margin-bottom: 10px;
+}
+
+html body#tinymce.mceContentBody h2 {
+  font-size: 26px !important;
+}
+
+html body#tinymce.mceContentBody h3 {
+  font-size: 22px !important;
+}
+
+html body#tinymce.mceContentBody h4 {
+  font-size: 20px !important;
+}
+
+html body#tinymce.mceContentBody h5 {
+  font-size: 18px !important;
+}
+
+html body#tinymce.mceContentBody h6 {
+  font-size: 16px !important;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+p, span, li, p span, div {
+  font-face: sans-serif;
+  font-size: 18px;
+}
+
+blockquote {
+  border: 1px solid #ccc;
+  background: #ddd;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+blockquote p {
+  font-size: 18px;
+  font-style: italic;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* CKEditor floated images in body field */
+
+.img-left {
+  float: left;
+  display: inline-block;
+  margin-right: $pad * .5;
+  max-width: 50%;
+}
+
+.img-right {
+  float: right;
+  display: inline-block;
+  margin-right: $pad * .5;
+  max-width: 50%;
+}

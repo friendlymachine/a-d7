@@ -1,72 +1,76 @@
-$base-font-size:   16px; // The font size set on the root html element.
-$base-line-height: 24px; // This line-height determines the basic unit of vertical rhythm.
+// Variables for _normalize.scss
 
-$remBase: 16px;
+$legacy-support-for-ie6: false;
+$legacy-support-for-ie7: false;
 
-// get size in rems
-@function remCalc($pxSize) {
-  $remSize: $pxSize / $remBase;
-  @return #{$remSize}rem;
-}
+// breakpoints
+$tab: 40em;
+$desk: 60em;
 
+// Font faces, stacks and sizes.
 
-// Heading sizes - modular scale using 16 as base #1 and 93 (column width at desktop) as base #2
-$h1-font-size: remCalc(46.5px);
-$h2-font-size: remCalc(32px);
-$h3-font-size: remCalc(23.25px);
-$h4-font-size: remCalc(16px);
-$h5-font-size: remCalc(11.625px);
-$h6-font-size: remCalc(8px);
+$base-font-size:   20px; // The font size set on the root html element.
 
-// Font families
+$h1-font-size: 2.25 * $base-font-size;
+$h2-font-size: 1.5  * $base-font-size;
+$h3-font-size: 1.31 * $base-font-size;
+$h4-font-size: 1    * $base-font-size;
+$h5-font-size: 0.83 * $base-font-size;
+$h6-font-size: 0.67 * $base-font-size;
+
 $courier: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
-$sans: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$sans: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans-body: "Roboto", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-// Font variables
-$base-font-family: $sans; // The font family set on the html element.
-$body-font:        $sans;
+// Variables for fonts.
+$body-font: $sans-body;
 $font-monospace:   $courier;
 $body-font-weight: 300;
-$bold-font-weight: 700;
+$bold-font-weight: 500;
+$base-line-height: 1.4;
 
 $header-font-family: $sans;
 $header-font-weight: 300;
 $header-font-style: normal;
-$header-line-height: 140%;
+$header-line-height: 110%;
 $header-top-margin: 0;
 $header-bottom-margin: .5em;
 
-// Colors
-$primary-color: #ddd;
-$secondary-color: #eee;
-$accent-color: #9d212c;
-$text-color: #666;
-$white: #fff;
+//
+// Colors, etc.
+//
+$base-color: #fff;
+$text-color: #444;
+$white: #fefefe;
+$light-gray: #efefef;
+$gray: #ddd;
+$dark-gray: #bbb;
+$link-color: #237ad9;
+$accent: #237ad9;
+$black: #222;
+$error: #f5dfdf;
+$warning: #f8fad5;
+$info: #dfeff5;
+$success: #e8f5df;
 
-// Indentation of lists, blockquotes and comments.
+// The amount lists, blockquotes and comments are indented.
 $indent-amount: 30px;
+
+$vert-spacing: 2rem;
+
+// The height of the navigation container.
+$nav-height: 3em;
+
+// Tab styling.
+$tabs-container-bg: #fff;
+$tabs-border: $gray;
+
 
 // =============================================================================
 // Partials to be shared with all .scss files.
 // =============================================================================
-
-// Add Compass' IE and vendor prefix support variables.
-@import "compass/support";
-
-// Better than Drupal's clearfix.
+@import "normalize";
 @import "compass/utilities/general/clearfix";
-
-// See http://compass-style.org/help/tutorials/spriting/
-@import "compass/utilities/sprites";
-
-// Use one CSS3 mixin instead of multiple vendor prefixes.
-@import "compass/css3";
-
-// Helps set up a vertical rhythm.
-@import "compass/typography/vertical_rhythm";
 
 // Now we add our custom helper mixins.
 @import "mixins";
-
-// Singularity grid system
-@import "singularitygs";

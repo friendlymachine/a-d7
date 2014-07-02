@@ -1,9 +1,6 @@
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  color: $text-color;
-}
-
-h1, h2, h3, h4, h5, h6 {
+  color: $black;
   font-family: $header-font-family;
   font-weight: $header-font-weight;
   line-height: $header-line-height;
@@ -12,22 +9,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h1 a {
-  font-size: remCalc(46px);
+  font-size: $h1-font-size * .85;
 }
 
-.site-name {
-  h1, h1 a, h2, h2 a {
-    color: $text-color;
-    font-size: remCalc(46px);
-    margin: 0;
-  }
+h1.site-name, h1.site-name a, h2.site-name, h2.site-name a {
+  color: $black;
+  font-size: 40px; font-size: 2.5rem;
+  line-height: 110%;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h1.page-title {
+  margin-bottom: .5rem; margin-bottom: 8px;
 }
 
 h2, h2 a {
   font-size: $h2-font-size;
 }
 
-h3, h3 a, h2.block__title {
+h3, h3 a, h2.block__title, h2.pane-title {
   font-size: $h3-font-size;
 }
 
@@ -41,4 +42,71 @@ h5, h5 a {
 
 h6, h6 a {
   font-size: $h6-font-size;
+}
+
+@include breakpoint($tab) {
+
+  h1, h1 a {
+    font-size: $h1-font-size;
+  }
+
+  body {
+    font-size: $base-font-size * .925;
+    &.two-sidebars {
+
+      h2, h2 a {
+        font-size: $h2-font-size * .925;
+      }
+
+      h3, h3 a, h2.block__title, h2.pane-title {
+        font-size: $h3-font-size * .925;
+      }
+
+      h4, h4 a {
+        font-size: $h4-font-size * .925;
+      }
+
+      h5, h5 a {
+        font-size: $h5-font-size * .925;
+      }
+
+      h6, h6 a {
+        font-size: $h6-font-size * .925;
+      }
+
+    }
+  }
+}
+
+@include breakpoint ($desk) {
+
+  body {
+    font-size: $base-font-size * .825;
+    &.two-sidebars {
+
+      h2, h2 a {
+        font-size: $h2-font-size * .825;
+      }
+
+      h3, h3 a, h2.block__title, h2.pane-title {
+        font-size: $h3-font-size * .825;
+      }
+
+      h4, h4 a {
+        font-size: $h4-font-size * .825;
+      }
+
+      h5, h5 a {
+        font-size: $h5-font-size * .825;
+      }
+
+      h6, h6 a {
+        font-size: $h6-font-size * .825;
+      }
+
+    }
+    &.no-sidebars {
+      font-size: $base-font-size;
+    }
+  }
 }

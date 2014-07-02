@@ -39,10 +39,8 @@ audio,
 canvas,
 video {
   display: inline-block;
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *display: inline;
-    *zoom: 1;
-  }
+  *display: inline;
+  *zoom: 1;
 }
 
 /**
@@ -79,10 +77,8 @@ audio:not([controls]) {
  *
  * The following is an example @font-face declaration. This font can then be
  * used in any ruleset using a property like this:  font-family: Example, serif;
- *
- * Since we're using Sass, you'll need to declare your font faces here, then you
- * can add them to the font variables in the _base.scss partial.
  */
+
 /*
 @font-face {
   font-family: 'Example';
@@ -104,22 +100,50 @@ audio:not([controls]) {
  *    `em` units.
  */
 html {
-  font-family: $base-font-family; /* 1 */
-  font-size: 100% * ($base-font-size / 16px); /* 3 */
-  -ms-text-size-adjust: 100%; /* 2 */
+  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif; /* 1 */
+
+  /* Delete all but one of the following font-size declarations: */
+
+  /* Use a 12px base font size. 16px x 75% = 12px */
+  font-size: 75%; /* 3 */
+  /* Use a 14px base font size. 16px x .875 = 14px */
+  font-size: 87.5%; /* 3 */
+  /* Use a 16px base font size. */
+  font-size: 100%; /* 3 */
+
+  -ms-text-size-adjust: 100%;     /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  // Establish a vertical rhythm unit using $base-line-height.
-  @include adjust-leading-to(1);
+
+  /* Establish a vertical rhythm. */
+  line-height: 1.5em;
 }
 
-@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-  /* Address `font-family` inconsistency between `textarea` and other form elements. */
-  button,
-  input,
-  select,
-  textarea {
-    font-family: $base-font-family;
-  }
+/* Address `font-family` inconsistency between `textarea` and other form elements. */
+button,
+input,
+select,
+textarea {
+  /**
+   * The following font family declarations are available on most computers.
+   *
+   * A user's web browser will look at the comma-separated list and will
+   * attempt to use each font in turn until it finds one that is available
+   * on the user's computer. The final "generic" font (sans-serif, serif or
+   * monospace) hints at what type of font to use if the web browser doesn't
+   * find any of the fonts in the list.
+   *
+   * font-family: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+   * font-family: Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+   * font-family: Georgia, "Times New Roman", "DejaVu Serif", serif;
+   *
+   * font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+   * font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+   * font-family: Helvetica, Arial, "Nimbus Sans L", sans-serif;
+   * font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+   *
+   * font-family: "Courier New", "DejaVu Sans Mono", monospace;
+   */
+  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
 }
 
 /* Remove default margin. */
@@ -155,6 +179,69 @@ a:hover {
   outline: 0;
 }
 
+/**
+ * Typography
+ *
+ * To achieve a pleasant vertical rhythm, we use Compass' Vertical Rhythm mixins
+ * so that the line height of our base font becomes the basic unit of vertical
+ * measurement. We use multiples of that unit to set the top and bottom margins
+ * for our block level elements and to set the line heights of any fonts.
+ * For more information, see http://24ways.org/2006/compose-to-a-vertical-rhythm
+ */
+
+/* Set 1 unit of vertical rhythm on the top and bottom margin. */
+p,
+pre {
+  margin: 1.5em 0;
+}
+blockquote {
+  /* Also indent the quote on both sides. */
+  margin: 1.5em 30px;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  /* Set the font-size and line-height while keeping a proper vertical rhythm. */
+  font-size: 2em;
+  line-height: 1.5em; /* 3rem / 2em = 1.5em */
+  /* Set 1 unit of vertical rhythm on the top and bottom margins. */
+  margin-top: 0.75em; /* 1.5rem / 2em = .75em */
+  margin-bottom: 0.75em;
+}
+h2 {
+  font-size: 1.5em;
+  line-height: 2em; /* 3rem / 1.5em = 2em */
+  margin-top: 1em; /* 1.5rem / 1.5em = 1em */
+  margin-bottom: 1em;
+}
+h3 {
+  font-size: 1.17em;
+  line-height: 1.28205em; /* 1.5rem / 1.17em = 1.28205em */
+  margin-top: 1.28205em;
+  margin-bottom: 1.28205em;
+}
+h4 {
+  font-size: 1em;
+  line-height: 1.5em; /* 1.5rem / 1em = 1.5em */
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+h5 {
+  font-size: 0.83em;
+  line-height: 1.80723em; /* 1.5rem / 0.83em = 1.80723em */
+  margin-top: 1.80723em;
+  margin-bottom: 1.80723em;
+}
+h6 {
+  font-size: 0.67em;
+  line-height: 2.23881em; /* 1.5rem / 0.67em = 2.23881em */
+  margin-top: 2.23881em;
+  margin-bottom: 2.23881em;
+}
+
 /* Address styling not present in IE 8/9, Safari 5, and Chrome. */
 abbr[title] {
   border-bottom: 1px dotted;
@@ -173,11 +260,13 @@ dfn {
 
 /* Address differences between Firefox and other browsers. */
 hr {
-  @include box-sizing(content-box);
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
   border: 1px solid #666;
   padding-bottom: -1px;
-  margin: rhythm(1) 0;
+  margin: 1.5em 0;
 }
 
 /* Address styling not present in IE 8/9. */
@@ -193,23 +282,17 @@ pre,
 samp,
 tt,
 var {
-  font-family: $font-monospace; // The value of $font-monospace ends with ", serif".
-  @if $legacy-support-for-ie6 {
-    _font-family: 'courier new', monospace;
-  }
-  @include adjust-font-size-to( $base-font-size );
+  font-family: "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+  line-height: 1.5em;
 }
 
 /* Improve readability of pre-formatted text in all browsers. */
 pre {
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-  @else {
-    white-space: pre-wrap;
-  }
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /* Set consistent quote types. */
@@ -245,34 +328,31 @@ menu,
 ol,
 ul {
   /* Address margins set differently in IE 6/7. */
-  margin: rhythm(1) 0;
+  margin: 1.5em 0;
 }
-ol,
-ul {
-  ol,
-  ul {
-    /* Turn off margins on nested lists. */
-    margin: 0;
-  }
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  /* Turn off margins on nested lists. */
+  margin: 0;
 }
 dd {
-  margin: 0 0 0 $indent-amount; /* LTR */
+  margin: 0 0 0 30px; /* LTR */
 }
 
 /* Address paddings set differently in IE 6/7. */
 menu,
 ol,
 ul {
-  padding: 0 0 0 $indent-amount; /* LTR */
+  padding: 0 0 0 30px; /* LTR */
 }
 
-@if $legacy-support-for-ie7 {
-  /* Correct list images handled incorrectly in IE 7. */
-  nav ul,
-  nav ol {
-    list-style: none;
-    list-style-image: none;
-  }
+/* Correct list images handled incorrectly in IE 7. */
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
 }
 
 /**
@@ -283,10 +363,8 @@ ul {
 img {
   /* Remove border when inside `a` element in IE 8/9. */
   border: 0;
-  @if $legacy-support-for-ie7 {
-    /* Improve image quality when scaled in IE 7. */
-    -ms-interpolation-mode: bicubic;
-  }
+  /* Improve image quality when scaled in IE 7. */
+  -ms-interpolation-mode: bicubic;
 
   /* Suppress the space beneath the baseline */
   /* vertical-align: bottom; */
@@ -294,10 +372,8 @@ img {
   /* Responsive images */
   max-width: 100%;
   height: auto;
-  @if $legacy-support-for-ie8 {
-    /* Correct IE 8 not scaling image height when resized. */
-    width: auto;
-  }
+  /* Correct IE 8 not scaling image height when resized. */
+  width: auto;
 }
 
 /* Correct overflow displayed oddly in IE 9. */
@@ -314,22 +390,16 @@ figure {
  * Forms
  */
 
-@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-  /* Correct margin displayed oddly in IE 6/7. */
-  form {
-    margin: 0;
-  }
+/* Correct margin displayed oddly in IE 6/7. */
+form {
+  margin: 0;
 }
 
 /* Define consistent border, margin, and padding. */
 fieldset {
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
-  /* Apply borders and padding that keep the vertical rhythm. */
-  border-color: #c0c0c0;
-  @include apply-side-rhythm-border(top,    $width: 1px, $lines: 0.35);
-  @include apply-side-rhythm-border(bottom, $width: 1px, $lines: 0.65);
-  @include apply-side-rhythm-border(left,   $width: 1px, $lines: 0.65);
-  @include apply-side-rhythm-border(right,  $width: 1px, $lines: 0.65);
+  padding: 0.5em 0.625em 1em;
 }
 
 /**
@@ -340,9 +410,7 @@ fieldset {
 legend {
   border: 0; /* 1 */
   padding: 0; /* 2 */
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *margin-left: -7px; /* 3 */ /* LTR */
-  }
+  *margin-left: -7px; /* 3 */ /* LTR */
 }
 
 /**
@@ -359,12 +427,12 @@ textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 2 */
   margin: 0; /* 3 */
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    vertical-align: baseline; /* 4 */
-    *vertical-align: middle; /* 4 */
-  }
+  vertical-align: baseline; /* 4 */
+  *vertical-align: middle; /* 4 */
   max-width: 100%; /* 5 */
-  @include box-sizing(border-box); /* 5 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; /* 5 */
 }
 
 /**
@@ -402,9 +470,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
   cursor: pointer; /* 3 */
-  @if $legacy-support-for-ie7 {
-    *overflow: visible; /* 4 */
-  }
+  *overflow: visible; /* 4 */
 }
 
 /**
@@ -423,12 +489,12 @@ html input[disabled] {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  @include box-sizing(border-box); /* 1 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
-  @if $legacy-support-for-ie7 {
-    *height: 13px; /* 3 */
-    *width: 13px; /* 3 */
-  }
+  *height: 13px; /* 3 */
+  *width: 13px; /* 3 */
 }
 
 /**
@@ -438,7 +504,9 @@ input[type="radio"] {
  */
 input[type="search"] {
   -webkit-appearance: textfield; /* 1 */
-  @include box-sizing(content-box); /* 2 */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; /* 2 */
 }
 
 /**
@@ -482,6 +550,6 @@ table {
   /* Prevent cramped-looking tables */
   /* width: 100%; */
   /* Add vertical rhythm margins. */
-  @include leader(1);
-  @include trailer(1);
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }

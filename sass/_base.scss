@@ -1,28 +1,25 @@
-/* HTML ELEMENTS */
-
-* {
-  box-sizing: border-box;
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-  background: $secondary-color;
-  font-family: $sans;
-  font-weight: $body-font-weight;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
   color: $text-color;
+  font-size: $base-font-size * .85;
+  font-family: $sans-body;
 }
 
-
 a,
-a:link,
 a:visited,
 a.active {
   border: none;
-  color: $accent-color;
+  color: $accent;
+  font-weight: $body-font-weight;
   text-decoration: none;
-  @include trans-all;
+  @include trans-color;
 }
 
 a img, a, img {
@@ -30,20 +27,28 @@ a img, a, img {
   border-color: none !important;
 }
 
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 a:hover,
 a:focus,
 a:active {
-  color: lighten($accent-color, 15%);
+  color: lighten($accent, 15%);
   outline: none;
 }
 
 p, ol, ul, blockquote, pre, code, span {
   color: $text-color;
-  font-size: $base-font-size;
   font-weight: $body-font-weight;
   hyphens: auto;
   line-height: $base-line-height;
-  margin: 0 0 $base-line-height 0;
+  margin: 0 0 $vert-spacing 0;
   word-wrap: break-word;
 }
 
@@ -52,8 +57,8 @@ strong, b {
 }
 
 blockquote {
-  background: $secondary-color;
-  border: 1px solid $primary-color;
+  background: $light-gray;
+  border: 1px solid $gray;
   font-style: italic;
   padding: 1em;
 }
@@ -63,7 +68,7 @@ blockquote p {
 }
 
 ol, ul {
-  padding-left: 1em;
+  padding-left: 0;
 }
 
 ul {
@@ -74,3 +79,11 @@ ol {
   list-style: decimal inside;
 }
 
+dt {
+  margin-bottom: .5rem;
+}
+
+dd {
+  font-weight: $body-font-weight;
+  margin: 0;
+}

@@ -1,16 +1,12 @@
-/* TABLE STYLES */
+// table styles
 
 table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-bottom: $base-line-height;
+  margin-bottom: $vert-spacing;
   max-width: 100%;
   width: 100%;
-}
-
-tbody {
-  border: 1px solid $primary-color;
 }
 
 table th,
@@ -36,16 +32,10 @@ table thead th {
 
 table tbody > tr:nth-child(odd) > td,
 table tbody > tr:nth-child(odd) > th {
-  background-color: $secondary-color;
+  background-color: $white;
 }
 
 table tbody > tr:nth-child(even) > td,
 table tbody > tr:nth-child(even) > th {
-  background-color: lighten($secondary-color, 10%);
+  background-color: lighten($accent, 7%);
 }
-
-//table tbody tr:hover > td,
-//table tbody tr:hover > th {
-//  background-color: $accent-color;
-//  color: $white;
-//}

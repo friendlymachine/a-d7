@@ -1,10 +1,97 @@
-/* MISC STYLES */
+// misc styles
 
-// contextual edit div - it needs a min width to appear properly
-
-.contextual {
-	width: 28px;
+.feed-icon {
+  @include clear-it;
 }
+
+// admin menu
+
+#admin-menu {
+  font-size: $base-font-size * .75;
+}
+
+#admin-menu li.admin-menu-account > a {
+  background: $accent;
+}
+
+#admin-menu .dropdown li li.expandable ul {
+  margin: -27px 0 0 160px;
+}
+
+// CKEditor floated images in body field
+.img-left {
+  float: left;
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-right: $pad * .5;
+  max-width: 50%;
+}
+
+.img-right {
+  float: right;
+  display: inline-block;
+  margin-bottom: 1rem;
+  margin-right: $pad * .5;
+  max-width: 50%;
+}
+
+// pager styles
+
+ul.pager {
+  background: none;
+  border: none;
+  display: inline-block;
+  float: right;
+  list-style: none;
+  overflow: hidden;
+  text-align: right;
+}
+
+ul.pager li {
+  border: none;
+  font-size: $base-font-size * .75;
+  padding: .5em 0 .5em 1em;
+}
+
+ul.pager li a {
+  border: none;
+}
+
+.pager li.pager-next,
+.pager li.pager-previous {
+  text-transform: capitalize;
+}
+
+.pager li.pager-current {
+  font-weight: normal;
+}
+
+.pager li, .pager li.pager-next, .pager li.pager-previous, .pager li.pager-last, .pager li.pager-first {
+  border: none;
+  margin-left: 1em;
+  position: relative;
+  text-align: right;
+}
+
+.pager li.pager-first a, .pager li.pager-previous a, .pager li.pager-next a, .pager li.pager-last a {
+  display: inline-block;
+}
+
+.pager li.pager-next,
+.pager li.pager-current {
+  float: right;
+}
+
+.pager li.pager-previous {
+  float: left;
+}
+
+.item-list .pager li {
+  padding: .25em 1em;
+}
+
+// end pager styles
+
 
 // node styles
 
@@ -20,4 +107,51 @@
   height: auto;
   padding: 5px 15px 5px 0;
   max-width: 50%;
+}
+
+// messages
+
+.messages {
+  &.error {
+    background: $error;
+    border: 2px solid #ce9e9e;
+  }
+  &.warning {
+    background: $warning;
+    border: 2px solid #e5d35b;
+  }
+  &.info {
+    background: $info;
+    border: 2px solid #9ebcce;
+  }
+  &.success {
+    background: $success;
+    border: 2px solid #9ece9e;
+  }
+  h2 {
+    font-size: 1rem;
+    font-weight: $body-font-weight;
+  }
+}
+
+// messages
+.messages.error,
+.messages.warning,
+.messages.info,
+.messages.success {
+  color: $black;
+  margin-bottom: $vert-spacing;
+  padding: 1rem;
+  li {
+    color: $black;
+  }
+}
+
+// accessible invisibility
+.element-invisible {
+  @include element-invisible;
+}
+
+.clearfix:after {
+  @include clear-it;
 }

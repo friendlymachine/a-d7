@@ -1,38 +1,86 @@
-#page {
-  border: 1px solid $primary-color;
-  margin: 0 auto;
-  max-width: 1024px;
-  background: $white;
-  padding: 0 30px 30px 30px;
-
+// header
+.header-wrapper,
+.preface-wrapper {
+  width: 100%;
 }
 
-header,
-.main,
+.header-wrapper {
+  padding-top: 1rem;
+}
+
+img.header__logo-image {
+  height: 63px;
+}
+
+.header__logo-image {
+  float: left;
+  height: auto;
+  margin-right: 1em;
+  position: relative;
+}
+
+.header__name-and-slogan {
+  float: left;
+ }
+
+.region-branding {
+  float: left;
+  overflow: hidden;
+  padding-bottom: 2rem;
+  position: relative;
+  @include breakpoint($desk) {
+    padding-bottom: 0;
+  }
+}
+
+// preface region
+
+
+
+
+// content region
+
+#content {
+  background: $base-color;
+  overflow: hidden;
+}
+
+#content .messages {
+  margin-bottom: $vert-spacing * .5;
+  padding: 20px;
+  &.status {
+    background: $info;
+    border: 1px solid darken($info, 20%);
+  }
+}
+
+.breadcrumb {
+  li {
+    display: inline-block;
+    list-style: none;
+    padding: 2rem 0;
+    font-family: $sans;
+    font-size: $base-font-size * .725;
+  }
+}
+
+// postscript region
+
+
+// footer region
+
 footer {
-	overflow: hidden;
+  clear: both;
 }
 
-/* header region */
-
-header {
-	padding: 1rem 0;
+.region-footer {
+  padding: 10px 0;
 }
 
-/* preface region */
-
-/* content region */
-
-#main {
-	
-}
-
-
-/* sidebar region */
-
-
-/* footer region */
-
-footer {
-	clear: both;
+.copyright {
+  padding-bottom: 10px;
+  p {
+    float: left;
+    font-size: $base-font-size * .625;
+  }
 }
