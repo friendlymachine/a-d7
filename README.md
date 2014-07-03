@@ -1,5 +1,5 @@
 # Atlas theme for Drupal 7
-Atlas is a starter theme for Drupal 7 and is the theme that comes with Prometheus installation profile. Atlas uses Sass and Compass for the CSS, and adopts a "Don't Overthink It" philosophy for the responsive grid.
+Atlas is a starter theme for Drupal 7 and is the theme that comes with [Prometheus](https://github.com/friendlymachine/prometheus) installation profile. Atlas uses Sass and Compass for the CSS, and adopts a "Don't Overthink It" philosophy for the responsive grid.
 
 ## Useful References
 - Prometheus [demo site](http://dev-prometheus.gotpantheon.com/). Atlas is the theme in use.
